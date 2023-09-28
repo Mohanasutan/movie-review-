@@ -13,7 +13,6 @@
 
   <body>
   <div class="navbar" style="height: 60px;">
-    <div class="button-container">
     <%= link_to "Home", root_path,class: "nav-link", class: "btn btn-outline-light"%>
     <% if current_user %>
       <div class="greet">
@@ -26,7 +25,6 @@
       <%= link_to "Sign In", new_user_session_path, class: "nav-link", class: "btn btn-outline-light" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", class: "btn btn-outline-light" %>
     <% end %>
-  </div>
   </div>
 
   <%= yield %>
@@ -41,10 +39,4 @@
         display: inline-block; /* Ensure it doesn't take up the entire width */
         color: white; /* Set the text color to white */
     }
-
-    .navbar .button-container {
-        display: flex;
-        gap: 200px; /* Adjust the gap as needed */
-    }
-
 </style>
