@@ -15,7 +15,6 @@
   <div class="navbar" style="height: 60px;">
     <div class="button-container">
     <%= link_to "Home", root_path,class: "nav-link", class: "btn btn-outline-light"%>
-      <%= link_to "Requests", requests_path, class: "btn btn-outline-light" %>
     <% if current_user %>
       <div class="greet">
       <span class="greeting">Hello, <%= current_user.email %></span>
