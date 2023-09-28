@@ -4,6 +4,5 @@
       resources :reviews
     end
     root 'movies#index'
-    get '/movies/search', to: 'movies#search', as: 'search_movies'
   end
 
