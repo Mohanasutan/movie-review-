@@ -1,10 +1,11 @@
+
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false">
+  <div id="error-box" data-turbo-cache="false">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
-       %>
+      %>
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
@@ -13,3 +14,32 @@
     </ul>
   </div>
 <% end %>
+
+<style>
+    #error-box {
+        position: fixed;
+        top: 10px; /* Adjust the top position as needed */
+        right: 10px; /* Adjust the right position as needed */
+        background-color: #ff0000; /* Background color for the error box */
+        color: #ffffff; /* Text color for the error messages */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000; /* Ensure it's above other content */
+    }
+
+    #error-box h2 {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    #error-box ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    #error-box li {
+        font-size: 10px;
+        margin: 5px 0;
+    }
+</style>
