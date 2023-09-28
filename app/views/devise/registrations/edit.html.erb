@@ -1,0 +1,76 @@
+<div class= "box-container">
+  <div align="center">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, "<strong>Email</strong>".html_safe %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", style: 'border-radius: 6px; ' %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :password, "<strong>Password</strong>".html_safe %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation,  "<strong>Password Confirmation</strong>".html_safe %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password,  "<strong>Current Password</strong>".html_safe %><br> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Update" , class: "btn btn-success btn sm"%>
+    </div>
+  <% end %>
+  <br>
+
+  <div>
+    Unhappy? <%= button_to "Remove my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn sm" %>
+  </div>
+  <br>
+  <%= link_to "Back", :back, class: "btn btn-info btn sm" %>
+  </div>
+</div>
+
+<style>
+
+    .box-container {
+        width: 450px; /* Set the width of the box */
+        height: 600px; /* Set the height of the box */
+        background-color: rgb(224,255,255,0.9); /* Set the background color */
+        padding: 20px; /* Add some padding inside the box */
+        margin: 10px; /* Add margin to create space between containers */
+        float: left;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        font-size: 16px; /* Adjust the font size */
+        color: #000000;
+
+    }
+
+    body {
+        background-image: url('https://th.bing.com/th/id/R.d2edb29f3f970c36aadecbb01ed0bb79?rik=euy3GgtoVbZXjQ&riu=http%3a%2f%2fs3-us-west-2.amazonaws.com%2ftechvibes%2fwp-content%2fuploads%2f2017%2f04%2f24135159%2fNetflix-Background.jpg&ehk=Te5qPs5gcrmm6JGD3hx5pWZ%2f7tWNKhG3laqWQsQBqd4%3d&risl=&pid=ImgRaw&r=0');
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-attachment: fixed; /* Optional: Keeps the background fixed while scrolling */
+        background-position: center center; /* Centers the background image horizontally and vertically */
+    }
+</style>

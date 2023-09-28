@@ -1,0 +1,34 @@
+<div align="center">
+<% if current_user.id==1 %>
+  <br>
+  <br>
+  <br>
+  <div class="color">
+    <h4>Editing movie</h4>
+  </div>
+  <%= render "form", movie: @movie %>
+  <br>
+  <div>
+  <%= link_to "Show this movie", @movie, class: "btn btn-info btn-sm" %> |
+  <%= link_to "Back to movies", movies_path, class: "btn btn-info btn-sm" %>
+  </div>
+  <%else %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="color">
+  <h4>You have no access to edit</h4>
+    <br>
+  </div>
+  <%= link_to "Back to movies", movies_path, class: "btn btn-info btn-sm" %>
+<% end %>
+</div>
+<style>
+    .color
+    {
+        color: #F7F7F7;
+    }
+</style>

@@ -1,0 +1,22 @@
+<div align="center">
+  <br>
+  <br>
+  <br>
+  <div class="reviews">
+<h3>New review</h3>
+
+<%= render "form", review: @review %>
+
+<br>
+
+<div>
+  <%= link_to "Back to reviews", movie_reviews_path(@movie), class: "btn btn-info  btn-block" %>
+</div>
+  </div>
+</div>
+<style>
+    .reviews
+    {
+        color: #F7F7F7;
+    }
+</style>

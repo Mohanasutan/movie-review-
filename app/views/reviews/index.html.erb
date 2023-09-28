@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+<div align="center">
+  <div class="reviews">
+  <p>
+    <br>
+    <strong >Reviews for:</strong>
+    <%= @movie.name %>
+  </p>
+  </div>
+  <div id="reviews">
+    <% @reviews.each do |review| %>
+      <%= render review %>
+    <% end %>
+  </div>
+
+  <%= link_to "Give your review", new_movie_review_path, class: "btn btn-info  btn-block" %>
+  <%=link_to "Back", movies_path(@movie), class: "btn btn-info  btn-block" %>
+  <br>
+</div>
+
+<style>
+  .reviews
+  {
+  color: #F7F7F7;
+  }
+</style>

@@ -1,0 +1,51 @@
+<div align="center">
+  <p style="color: green"><%= notice %></p>
+  <div class="movies">
+    <br>
+    <br>
+    <h1 align="center">Movies</h1>
+  </div>
+  <%= form_tag(movies_path, method: 'get') do %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search by movie name', style: 'border-radius: 10px; ' %>
+    <%= submit_tag 'Search', class: "btn btn-secondary btn-sm" %>
+    <%= button_to 'Clear', movies_path, method: :get, params: { search: nil }, class: "btn btn-secondary btn-sm" %>
+  <% end %>
+<br>
+  <%= form_tag movies_path, method: :get do %>
+    <div align="center">
+      <%= label_tag 'from_date', 'From Date:', style: 'color: white;' %>
+      <%= date_field_tag 'from_date', params[:from_date], class: 'datepicker',  style: 'border-radius: 10px; ' %>
+
+      <%= label_tag 'to_date', 'To Date:', style: 'color: white;' %>
+      <%= date_field_tag 'to_date', params[:to_date], class: 'datepicker',  style: 'border-radius: 10px; ' %>
+      <%= submit_tag 'Apply Filter', class: "btn btn-secondary btn-sm" %>
+      <%= button_to 'Clear filter', movies_path, method: :get, params: { from_date: nil, to_date: nil }, class: "btn btn-secondary btn-sm" %>
+    </div>
+  <% end %>
+  <div id="movies" class="clearfix">
+    <% @movies.each do |movie| %>
+      <%= render movie %>
+    <% end %>
+  </div>
+
+  <% if current_user.id==1 %>
+    <br>
+    <%= link_to "Add new movie", new_movie_path, class: "btn btn-info  btn-block" %>
+  <% end %>
+</div>
+
+<style>
+
+.clearfix::after {
+content: "";
+display: table;
+clear: both;
+}
+
+.movies
+ {
+     color: #F7F7F7;
+
+ }
+
+</style>

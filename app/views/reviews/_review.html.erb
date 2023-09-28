@@ -1,0 +1,46 @@
+<div class= "box-container">
+<div id="<%= dom_id review %>">
+  <p>
+    <strong>Comment:</strong>
+    <%= review.comment %>
+  </p>
+
+  <p>
+    <strong>Rating:</strong>
+    <%= review.rating %>
+    <%='⭐' %>
+  </p>
+<p>
+  <strong>Review posted by:</strong>
+  <%= review.user.email %>
+</p>
+  <% if current_user == review.user %>
+    <div class="btn-group">
+      <%= link_to "Edit review", edit_movie_review_path(@movie, review), class: "btn btn-primary btn-sm" %>
+      <span class="btn-gap"></span> <!-- Add a gap with a span element -->
+      <%= button_to "Delete review", movie_review_path(@movie, review), method: :delete, class: "btn btn-danger btn-sm" %>
+    </div>
+  <% end %>
+
+</div>
+</div>
+
+<style>
+    /* Define styles for the container */
+    .box-container {
+        width: 400px; /* Set the width of the box */
+        height: 200px; /* Set the height of the box */
+        border: 1px solid black; /* Add a border */
+        padding: 20px; /* Add some padding inside the box */
+        margin: 20px; /* Add margin to create space between containers */
+        border-radius: 10px; /* Add rounded corners */
+        background-color: rgb(224,255,255,0.8);
+        color: #000000;
+        font-size: 15px;
+    }
+
+    .btn-gap {
+        margin-left: 10px; /* Adjust the margin size as needed */
+    }
+
+</style>

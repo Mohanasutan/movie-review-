@@ -1,0 +1,37 @@
+
+<div align="center">
+  <% if current_user.id==1 %>
+  <br>
+  <br>
+  <br>
+  <div class="color">
+    <h4>New movie</h4>
+  </div>
+  <%= render "form", movie: @movie %>
+    <br>
+    <div>
+  <%= link_to "Back to movies", movies_path, class: "btn btn-info btn-sm" %>
+    <% else %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="color">
+    <h4>You don't have access for this</h4>
+    </div>
+    <br>
+    <br>
+      <%= link_to "Back to movies", movies_path, class: "btn btn-info btn-sm" %>
+  <% end %>
+  </div>
+</div>
+
+
+<style>
+    .color
+    {
+        color: #F7F7F7;
+    }
+</style>
