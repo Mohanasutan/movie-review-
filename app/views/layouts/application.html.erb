@@ -20,8 +20,9 @@
       <div class="greet">
       <span class="greeting">Hello, <%= current_user.email %></span>
       </div>
-      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-light" %>
-      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
+        <%= link_to "Requests", requests_path, class: "btn btn-outline-light" %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline-light" %>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
     <% else %>
       <%= link_to "Sign In", new_user_session_path, class: "nav-link", class: "btn btn-outline-light" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", class: "btn btn-outline-light" %>
