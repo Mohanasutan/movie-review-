@@ -1,8 +1,8 @@
-<div class= "box-container">
+
 <%= form_with(model: [@movie, review]) do |form| %>
   <% if review.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+    <div class="error-box">
+      <h8> prohibited this review from being saved:</h8>
 
       <ul>
         <% review.errors.each do |error| %>
@@ -11,12 +11,14 @@
       </ul>
     </div>
   <% end %>
-
+  <br>
+  <br>
+  <div class= "box-container">
   <div>
     <%= form.label :comment, style: "display: block" %>
     <%= form.text_area :comment, style: 'border-radius: 7px; ' %>
   </div>
-<br>Movie
+<br>
   <div class="field">
     <%= form.radio_button :rating , 1 %>
     <%= form.label :one , '⭐1', :value=> 1 %>
@@ -37,21 +39,36 @@
   <div>
     <%= form.submit class: "btn btn-success btn sm" %>
   </div>
+  </div>
 <% end %>
-</div>
+
+
+
 <style>
     /* Define styles for the container */
     .box-container {
         width: 400px; /* Set the width of the box */
         height: 250px; /* Set the height of the box */
-        border: 1px solid black; /* Add a border */
+        overflow: auto;        border: 1px solid black; /* Add a border */
         padding: 20px; /* Add some padding inside the box */
         margin: 20px; /* Add margin to create space between containers */
         border-radius: 10px; /* Add rounded corners */
         background-color: rgb(224,255,255,0.7);
         color: #000000;
         font-size: 15px;
+        position: relative;
     }
 
+.error-box
+{
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    background-color: red;
+    padding: 5px;
+    color: white;
+    width:400px;
+    border-radius: 5px;
+}
 
 </style>

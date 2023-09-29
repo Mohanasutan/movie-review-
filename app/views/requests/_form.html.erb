@@ -1,9 +1,10 @@
 <div align="center">
-  <div class="box-container">
+
 <%= form_with(model: request) do |form| %>
+
   <% if request.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+      <div class="error-box">
+      <h8><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h8>
 
       <ul>
         <% request.errors.each do |error| %>
@@ -12,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-
+    <div class="box-container">
   <div>
     <%= form.label :movie_name, style: "display: block" %>
     <%= form.text_field :movie_name %>
@@ -40,5 +41,17 @@
         align-content: center;
         font-size: 17px;
 
+    }
+
+    .error-box
+    {
+        position: absolute;
+        top: 80px;
+        right: 10px;
+        background-color: red;
+        padding: 5px;
+        color: white;
+        width:300px;
+        border-radius: 5px;
     }
 </style>
