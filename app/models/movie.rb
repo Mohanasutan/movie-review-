@@ -11,8 +11,4 @@ class Movie < ApplicationRecord
       0
     end
   end
-
-  # Validations---------------
-  validates :comment, presence: true
-  validates :rating, presence: true
 end
