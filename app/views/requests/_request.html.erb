@@ -2,6 +2,13 @@
 <div id="<%= dom_id request %>">
   <p>
     <%= request.movie_name %>
+    <br>
+    <strong>Requested by :</strong>
+    <% if request.user %>
+      <%= request.user.email %>
+    <% else %>
+      User not available
+    <% end %>
   </p>
 
 </div>
